@@ -22,11 +22,11 @@ if uploaded_file is not None:
     st.sidebar.header("2. Choose Operation")
     options = [
         "Preview Original",
-        "Image Properties (Q4)",
-        "Grayscale & B/W (Q3)",
-        "Rotate & Flip (Q5, Q6)",
-        "Object & Edge Detection (Q7)",
-        "Splitting & Grid (Q9-Q11)"
+        "Image Properties ",
+        "Grayscale & B/W ",
+        "Rotate & Flip ",
+        "Object & Edge Detection ",
+        "Splitting & Grid "
     ]
     choice = st.sidebar.selectbox("Select a task:", options)
 
@@ -38,7 +38,7 @@ if uploaded_file is not None:
         st.image(original_image, channels="BGR", use_container_width=True)
 
     # OPTION: Properties
-    elif choice == "Image Properties (Q4)":
+    elif choice == "Image Properties ":
         st.subheader("📊 Image Properties")
         h, w, c = original_image.shape
         size_mb = uploaded_file.size / (1024 * 1024)
@@ -54,7 +54,7 @@ if uploaded_file is not None:
         st.image(original_image, channels="BGR", caption="Analyzed Image", width=400)
 
     # OPTION: Grayscale
-    elif choice == "Grayscale & B/W (Q3)":
+    elif choice == "Grayscale & B/W ":
         st.subheader("⚫⚪ Grayscale Conversion")
         
         col1, col2 = st.columns(2)
@@ -67,7 +67,7 @@ if uploaded_file is not None:
             st.image(gray_img, caption="Grayscale", use_container_width=True)
 
     # OPTION: Rotate & Flip
-    elif choice == "Rotate & Flip (Q5, Q6)":
+    elif choice == "Rotate & Flip ":
         st.subheader("🔄 Geometric Transformations")
         
         transform_type = st.radio("Select Transformation:", 
@@ -87,7 +87,7 @@ if uploaded_file is not None:
         col2.image(processed, channels="BGR", caption="Transformed", use_container_width=True)
 
     # OPTION: Detection
-    elif choice == "Object & Edge Detection (Q7)":
+    elif choice == "Object & Edge Detection ":
         st.subheader("🕵️ Object & Edge Detection")
         
         # Add a slider to let user adjust sensitivity!
@@ -110,7 +110,7 @@ if uploaded_file is not None:
         c2.image(contour_img, channels="BGR", caption=f"Contours Found: {len(contours)}", use_container_width=True)
 
     # OPTION: Splitting
-    elif choice == "Splitting & Grid (Q9-Q11)":
+    elif choice == "Splitting & Grid ":
         st.subheader("✂️ Image Slicing")
         slice_type = st.selectbox("Choose slice type:", ["Vertical Split (80/20)", "Horizontal Split (70/30)", "5-Row Grid"])
         
